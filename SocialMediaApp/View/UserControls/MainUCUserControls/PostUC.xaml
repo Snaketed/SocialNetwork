@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="SocialMediaApp.View.UserControls.MainUCUserControls.PostUC"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:UserControls="clr-namespace:SocialMediaApp.View.UserControls.MainUCUserControls"
+        xmlns:ViewModelUC="clr-namespace:SocialMediaApp.ViewModel.UserControlsViewModel.MainUCUserControlsViewModel"            
+       
+             mc:Ignorable="d" Height="auto" Width="auto">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="CommentsUC" DataType="{x:Type ViewModelUC:CommentsUCViewModel}">
+            <UserControls:CommentsUC />
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="5" Grid.Row="0" Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid Margin="5" Grid.Column="0" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="{Binding PicturePath, UpdateSourceTrigger=PropertyChanged}" />
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="18" Margin="0" Grid.Row="0" Text="{Binding PostOwnerNickname, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource CommonTextBlock}" />
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <TextBlock FontSize="10" TextWrapping="Wrap" Width="auto" Style="{StaticResource CommonTextBlock}" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
+                    </ScrollViewer>
+                    <TextBlock Margin="0" Grid.Row="2" FontSize="8" Text="{Binding PostDate, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource CommonTextBlock}" HorizontalAlignment="Right" />
+                </Grid>
+            </Grid>
+            <Grid  Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Style="{StaticResource WhiteTextBlock}" FontSize="9">Do you like post?</TextBlock>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <Button Width="40" Command="{Binding LikeCommand}"  Grid.Row="2" Style="{StaticResource GreenButton}" FontSize="9">Yes</Button>
+                    <TextBlock HorizontalAlignment="Right" Foreground="DarkGreen"  Style="{StaticResource WhiteTextBlock}" FontSize="9" Text="{Binding NumberOfLikes, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <Button Width="40" Command="{Binding DislikeCommand}" Grid.Row="3" Style="{StaticResource RedButton}" FontSize="9">No</Button>
+                    <TextBlock Foreground="Red"  Style="{StaticResource WhiteTextBlock}" FontSize="9" Text="{Binding NumberOfDislikes, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" HorizontalAlignment="Left" Width="30" Command="{Binding UndoCommand}" Style="{StaticResource BlackButton}" FontSize="9" >Undo</Button>
+                    <Button Width="50" Grid.Column="1" HorizontalAlignment="Left" Command="{Binding GotoAddComment}" Style="{StaticResource BlackButton}" FontSize="9" >Comment</Button>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Margin="5" Grid.Row="1" Background="White">
+            <ContentControl Grid.Column="1" Content="{Binding Comments}" />
+        </Grid>
+
+    </Grid>
+</UserControl>
