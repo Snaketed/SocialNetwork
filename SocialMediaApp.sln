@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bll", "Bll\Bll.csproj", "{9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{1F497742-37ED-4FB1-BF68-02EE985B33FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CassandraDal", "CassandraDall\CassandraDal.csproj", "{A114FA23-4A1F-4FB2-9922-715D53E780DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelsCassandra", "ModelsCassandra\ModelsCassandra.csproj", "{6339E463-EB7A-4961-B217-C920F7C5DB69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{1F497742-37ED-4FB1-BF68-02EE985B33FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F497742-37ED-4FB1-BF68-02EE985B33FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F497742-37ED-4FB1-BF68-02EE985B33FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A114FA23-4A1F-4FB2-9922-715D53E780DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A114FA23-4A1F-4FB2-9922-715D53E780DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A114FA23-4A1F-4FB2-9922-715D53E780DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A114FA23-4A1F-4FB2-9922-715D53E780DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6339E463-EB7A-4961-B217-C920F7C5DB69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6339E463-EB7A-4961-B217-C920F7C5DB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6339E463-EB7A-4961-B217-C920F7C5DB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6339E463-EB7A-4961-B217-C920F7C5DB69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
